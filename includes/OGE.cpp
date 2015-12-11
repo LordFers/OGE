@@ -12,7 +12,13 @@
 #include "OGE.hpp"
 
 OGE::OGE(){
-	Engine = new CEngineOGL(); //or new CEngineDX();
+	/* In process */
+	#ifdef _WIN32
+		Engine = new CEngineDX();
+	#elif __linux__
+		Engine = new CEngineOGL();
+	#endif
+	
 	Events = new OGEEvents(Engine);
 
 	new OGEDisplay(Engine, Events, 1280, 720, false);
