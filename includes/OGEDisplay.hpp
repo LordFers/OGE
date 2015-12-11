@@ -20,7 +20,7 @@ private:
 	static LRESULT CALLBACK OGEDisplay::WindProc(HWND hwnd, UINT message, WPARAM wParam, LPARAM lParam);
 
 public:
-	OGEDisplay(IEngine *Engine, OGEEvents *Events, int width, int height, bool fullscreen);
+	OGEDisplay(IEngine *m_Engine, OGEEvents *m_Events, int width, int height, bool fullscreen);
 
 public:
 	void OGEDisplay::RegisterWindow(int width, int height, bool fullscreen);
@@ -29,7 +29,7 @@ private:
 	HWND m_hWnd;
 
 private:
-	OGEEvents* Events;
+	OGEEvents* m_Events;
 
 private:
 	int m_viewWidth, m_viewHeight;

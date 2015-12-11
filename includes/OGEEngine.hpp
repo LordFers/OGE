@@ -12,8 +12,7 @@
 #ifndef _H_OGEENGINE_
 #define _H_OGEENGINE_
 #include "stdafx.hpp"
-
-#define FVF_CUSTOM (D3DFVF_XYZ | D3DFVF_TEX1 | D3DFVF_DIFFUSE)
+#include "OGEDirectXDevice.hpp"
 
 class IEngine {
 	public:
@@ -22,6 +21,7 @@ class IEngine {
 		virtual void IEngine::RenderScene() = 0;
 		virtual void IEngine::setRun(bool run) = 0;
 		virtual bool IEngine::IsRun() = 0;
+
 	protected:
 		bool m_Run;
 	};
@@ -33,13 +33,16 @@ class CEngineDX : public IEngine {
 		void CEngineDX::RenderScene();
 
 	public:
-		void CEngineDX::setRun(bool run) { this->m_Run = run; }
-		bool CEngineDX::IsRun() { return this->m_Run; }
+		inline void CEngineDX::setRun(bool run) { this->m_Run = run; }
+		inline bool CEngineDX::IsRun() { return this->m_Run; }
 
 	private:
 		LPDIRECT3D9				m_pDirect3D;
 		LPDIRECT3DDEVICE9		m_pDirect3DDevice;
 		LPDIRECT3DTEXTURE9		m_pDirect3DTexture;
+
+	private:
+		OGEDirectXDevice		*m_Device;
 
 	private:
 		typedef struct {
@@ -55,8 +58,8 @@ class CEngineOGL : public IEngine {
 		void CEngineOGL::RenderScene();
 
 	public:
-		void CEngineOGL::setRun(bool run) { this->m_Run = run; }
-		bool CEngineOGL::IsRun() { return this->m_Run; }
+		inline void CEngineOGL::setRun(bool run) { this->m_Run = run; }
+		inline bool CEngineOGL::IsRun() { return this->m_Run; }
 
 	private:
 		HDC hDC;

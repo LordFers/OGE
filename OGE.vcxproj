@@ -154,16 +154,21 @@
   <ItemGroup>
     <ClCompile Include="includes/Main.cpp" />
     <ClCompile Include="includes/OGE.cpp" />
+    <ClCompile Include="includes\OGEDirectXDevice.cpp" />
     <ClCompile Include="includes\OGEEvents.cpp" />
     <ClCompile Include="includes/OGEDisplay.cpp" />
     <ClCompile Include="includes/OGEEngine.cpp" />
+    <ClCompile Include="includes\OGERenderDirectX.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="includes/OGE.hpp" />
+    <ClInclude Include="includes\OGEDirectXDevice.hpp" />
     <ClInclude Include="includes\OGEEvents.hpp" />
     <ClInclude Include="includes/OGEDisplay.hpp" />
     <ClInclude Include="includes/OGEEngine.hpp" />
     <ClInclude Include="includes/stdafx.hpp" />
+    <ClInclude Include="includes\OGEOpenGLDevice.hpp" />
+    <ClInclude Include="includes\OGERenderDirectX.hpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

@@ -1,0 +1,5 @@
+*.obj
+*.tlog
+Debug/vc140.pdb
+*.log
+Debug/vc140.idb

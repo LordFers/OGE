@@ -33,27 +33,15 @@ bool CEngineDX::Initialize(HWND hWnd, int width, int height, bool fullscreen) {
 		return false;
 	}
 
-	m_pDirect3DDevice->SetRenderState(D3DRS_ALPHABLENDENABLE, TRUE);
-	m_pDirect3DDevice->SetRenderState(D3DRS_BLENDOP, D3DBLENDOP_ADD);
-	m_pDirect3DDevice->SetRenderState(D3DRS_SRCBLEND, D3DBLEND_SRCALPHA);
-	m_pDirect3DDevice->SetRenderState(D3DRS_DESTBLEND, D3DBLEND_INVSRCALPHA);
-	m_pDirect3DDevice->SetTextureStageState(0, D3DTSS_ALPHAOP, D3DTOP_MODULATE);
-
-	m_pDirect3DDevice->SetRenderState(D3DRS_LIGHTING, FALSE);
-	m_pDirect3DDevice->SetRenderState(D3DRS_CULLMODE, D3DCULL_NONE);
-	m_pDirect3DDevice->SetRenderState(D3DRS_ZENABLE, TRUE);
-
-	m_pDirect3DDevice->SetFVF(FVF_CUSTOM);
+	m_Device = new OGEDirectXDevice(m_pDirect3DDevice);
 
 	return true;
 }
 
 void CEngineDX::Render(){
-	m_pDirect3DDevice->Clear(0, NULL, D3DCLEAR_TARGET | D3DCLEAR_ZBUFFER, 0, 1.0f, 0);
-	m_pDirect3DDevice->BeginScene();
-		//RenderScene();
-	m_pDirect3DDevice->EndScene();
-	m_pDirect3DDevice->Present(NULL, NULL, NULL, NULL);
+	m_Device->BeginScene();
+
+	m_Device->EndScene();
 }
 
 void CEngineDX::RenderScene(){

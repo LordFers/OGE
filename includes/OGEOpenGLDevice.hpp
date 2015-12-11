@@ -9,18 +9,15 @@
 *   https://github.com/LordFers/OGE.git
 *****************************************************************************/
 
-#include "OGEEvents.hpp"
+#ifndef _H_OGEOPENGLDEVICE_
+#define _H_OGEOPENGLDEVICE_
 
-OGEEvents::OGEEvents(IEngine *m_Engine){
-	for (auto &m_Keys : m_Keys) { m_Keys = false; }
-	this->m_Engine = m_Engine;
-}
+#include "OGEEngine.hpp"
 
-void OGEEvents::KeyEvents(WPARAM wParam){
-	switch (wParam)
-	{
-		case VK_ESCAPE:
-			m_Engine->setRun(false);
-				break;
-	}
-}
+class OGEOpenGLDevice {
+	public:
+		OGEOpenGLDevice::OGEOpenGLDevice(IEngine *m_Engine);
+
+};
+
+#endif

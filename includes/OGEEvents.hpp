@@ -16,15 +16,17 @@
 
 class OGEEvents {
 	public:
-		OGEEvents(IEngine *newEngine);
+		OGEEvents(IEngine *m_Engine);
 
 	public:
 		void OGEEvents::KeyEvents(WPARAM wParam);
-		void OGEEvents::setKeyDown(WPARAM wParam){ this->m_Keys[wParam] = true; }
-		void OGEEvents::setKeyUp(WPARAM wParam){ this->m_Keys[wParam] = false; }
+	
+	public:
+		inline void OGEEvents::setKeyDown(WPARAM wParam){ this->m_Keys[wParam] = true; }
+		inline void OGEEvents::setKeyUp(WPARAM wParam){ this->m_Keys[wParam] = false; }
 
 	private:
-		IEngine *Engine;
+		IEngine *m_Engine;
 		bool m_Keys[256];
 };
 #endif

@@ -21,8 +21,8 @@ class OGE {
 		OGE();
 
 	public:
-		IEngine* Engine;
-		OGEEvents* Events;
+		IEngine* m_Engine;
+		OGEEvents* m_Events;
 
 	private:
 		MSG msg;

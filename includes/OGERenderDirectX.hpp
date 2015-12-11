@@ -9,18 +9,13 @@
 *   https://github.com/LordFers/OGE.git
 *****************************************************************************/
 
-#include "OGEEvents.hpp"
+#ifndef _H_OGERENDERDIRECTX_
+#define _H_OGERENDERDIRECTX_
+#include <d3dx9.h>
 
-OGEEvents::OGEEvents(IEngine *m_Engine){
-	for (auto &m_Keys : m_Keys) { m_Keys = false; }
-	this->m_Engine = m_Engine;
-}
+class OGERenderDirectX {
+	public:
+		OGERenderDirectX::OGERenderDirectX();
+};
 
-void OGEEvents::KeyEvents(WPARAM wParam){
-	switch (wParam)
-	{
-		case VK_ESCAPE:
-			m_Engine->setRun(false);
-				break;
-	}
-}
+#endif

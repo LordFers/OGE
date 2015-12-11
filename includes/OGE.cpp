@@ -10,18 +10,24 @@
 *****************************************************************************/
 
 #include "OGE.hpp"
+#include <iostream>
 
 OGE::OGE(){
-	Engine = new CEngineOGL(); //or new CEngineDX();
-	Events = new OGEEvents(Engine);
 
-	new OGEDisplay(Engine, Events, 1280, 720, false);
+	#ifdef _WIN32
+		m_Engine = new CEngineDX();
+	#elif __linux__
+	m_Engine = new CEngineOGL();
+	#endif
 	
-	while (Engine->IsRun()){
+	m_Events = new OGEEvents(m_Engine);
+	new OGEDisplay(m_Engine, m_Events, 1280, 720, false);
+	
+	while (m_Engine->IsRun()){
 		while (PeekMessage(&msg, NULL, 0, 0, PM_REMOVE)) {
 			TranslateMessage(&msg);
 			DispatchMessage(&msg);
 		}
-		Engine->Render();
+		m_Engine->Render();
 	}
 }

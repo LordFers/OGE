@@ -9,18 +9,20 @@
 *   https://github.com/LordFers/OGE.git
 *****************************************************************************/
 
-#include "OGEEvents.hpp"
+#ifndef _H_OGEDIRECTXDEVICE_
+#define _H_OGEDIRECTXDEVICE_
+#include <d3dx9.h>
 
-OGEEvents::OGEEvents(IEngine *m_Engine){
-	for (auto &m_Keys : m_Keys) { m_Keys = false; }
-	this->m_Engine = m_Engine;
-}
+#define FVF_CUSTOM (D3DFVF_XYZ | D3DFVF_TEX1 | D3DFVF_DIFFUSE)
 
-void OGEEvents::KeyEvents(WPARAM wParam){
-	switch (wParam)
-	{
-		case VK_ESCAPE:
-			m_Engine->setRun(false);
-				break;
-	}
-}
+class OGEDirectXDevice {
+	public:
+		OGEDirectXDevice::OGEDirectXDevice(LPDIRECT3DDEVICE9 m_pDirect3DDevice);
+		void OGEDirectXDevice::BeginScene();
+		void OGEDirectXDevice::EndScene();
+
+	private:
+		LPDIRECT3DDEVICE9 m_pDirect3DDevice;
+};
+
+#endif

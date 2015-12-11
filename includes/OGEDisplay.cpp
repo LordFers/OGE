@@ -11,10 +11,10 @@
 
 #include "OGEDisplay.hpp"
 
-OGEDisplay::OGEDisplay(IEngine *Engine, OGEEvents *Events, int width, int height, bool fullscreen) {
+OGEDisplay::OGEDisplay(IEngine *m_Engine, OGEEvents *m_Events, int width, int height, bool fullscreen) {
 	RegisterWindow(width, height, fullscreen);
-	Engine->setRun(Engine->Initialize(m_hWnd, width, height, fullscreen));
-	this->Events = Events;
+	m_Engine->setRun(m_Engine->Initialize(m_hWnd, width, height, fullscreen));
+	this->m_Events = m_Events;
 }
 
 void OGEDisplay::RegisterWindow(int width, int height, bool fullscreen){
@@ -66,12 +66,12 @@ LRESULT CALLBACK OGEDisplay::WindProc(HWND hwnd, UINT message, WPARAM wParam, LP
 					break;
 
 			case WM_KEYDOWN:
-				pThis->Events->setKeyDown(wParam);
-				pThis->Events->KeyEvents(wParam);
+				pThis->m_Events->setKeyDown(wParam);
+				pThis->m_Events->KeyEvents(wParam);
 					break;
 
 			case WM_KEYUP:
-				pThis->Events->setKeyUp(wParam);
+				pThis->m_Events->setKeyUp(wParam);
 					break;
 
 			default:
