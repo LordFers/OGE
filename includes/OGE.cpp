@@ -17,7 +17,7 @@ OGE::OGE(){
 	#ifdef _WIN32
 		m_Engine = new CEngineDX();
 	#elif __linux__
-	m_Engine = new CEngineOGL();
+		m_Engine = new CEngineOGL();
 	#endif
 	
 	m_Events = new OGEEvents(m_Engine);
