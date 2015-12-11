@@ -15,7 +15,7 @@
 
 class OGERenderDirectX {
 	public:
-		OGERenderDirectX::OGERenderDirectX();
+		//OGERenderDirectX::OGERenderDirectX();
 };
 
 #endif

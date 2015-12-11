@@ -16,7 +16,7 @@
 
 class OGEOpenGLDevice {
 	public:
-		OGEOpenGLDevice::OGEOpenGLDevice(IEngine *m_Engine);
+		//OGEOpenGLDevice::OGEOpenGLDevice(IEngine *m_Engine);
 
 };
 
