@@ -20,7 +20,6 @@ OGE::OGE(){
 	#endif
 	
 	Events = new OGEEvents(Engine);
-
 	new OGEDisplay(Engine, Events, 1280, 720, false);
 	
 	while (Engine->IsRun()){
