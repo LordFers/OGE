@@ -21,6 +21,6 @@ void OGEEvents::KeyEvents(WPARAM wParam){
 	{
 		case VK_ESCAPE:
 			m_Engine->setRun(false);
-				break;
+		break;
 	}
 }
